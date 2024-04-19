@@ -29,3 +29,6 @@
     npm run dev
     ```
 
+##Database
+1. Start mongodb compass and connect to localhost (mongodb://localhost:27017) 
+
