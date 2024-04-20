@@ -10,6 +10,7 @@ function RecruiterHome() {
       <p>Post jobs:</p>
       <ul>
         <li><Link to="/shortlistCandidate">Short List your candidates</Link></li>
+        <li><Link to="/postJobByRecruiter">Post job openings</Link></li>
       </ul>
     </div>
   )
