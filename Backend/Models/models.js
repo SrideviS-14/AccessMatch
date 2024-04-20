@@ -12,7 +12,17 @@ const recruiterSchema = new mongoose.Schema({
     Phone_number: String,
     Password: String
 })
-
+const jobOpeningSchema = new mongoose.Schema({
+    recruiterEmail: {
+        type: String,
+        ref: 'Recruiter' // References the Recruiter model
+    },
+    companyName: String,
+    jobTitle: String,
+    jobDescription: String,
+    numberOfOpenings: Number
+});
 const JobSeeker = mongoose.model("JobSeeker", jobSeekerSchema)
 const Recruiter = mongoose.model("Recruiter", recruiterSchema)
-module.exports = {JobSeeker, Recruiter};
+const JobOpening = mongoose.model("JobOpening", jobOpeningSchema);
+module.exports = {JobSeeker, Recruiter, JobOpening};

@@ -1,7 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
-const { JobSeeker, Recruiter } = require('./Models/models');
+const { JobSeeker, Recruiter, JobOpening } = require('./Models/models');
 const path = require('path'); // Import path module for handling file paths
 
 const app = express();
@@ -80,6 +80,36 @@ app.post('/register', async (req, res) => {
         res.status(500).json({ message: error.message });
     }
 });
+
+// Handle submission of job details form
+app.post('/jobOpening/add', async (req, res) => {
+    try {
+        const { email, companyName, jobTitle, jobDescription, numberOfOpenings } = req.body;
+
+        // Check if the recruiter exists
+        const recruiter = await Recruiter.findOne({ Email_id: email });
+        if (!recruiter) {
+            return res.status(400).json({ message: "Recruiter not found" });
+        }
+
+        // Create a new job opening
+        const jobOpening = new JobOpening({
+            recruiterEmail: email,
+            companyName,
+            jobTitle,
+            jobDescription,
+            numberOfOpenings
+        });
+
+        // Save the job opening to the database
+        await jobOpening.save();
+
+        res.status(201).json({ message: "Job opening added successfully" });
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+});
+
 
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
