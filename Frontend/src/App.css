@@ -1,0 +1,74 @@
+/* app.css */
+
+/* Body styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2; /* Light gray background */
+  }
+  
+  /* Form container */
+  .form-container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff; /* White background */
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Light shadow */
+  }
+  
+  /* Headings */
+  h1, h2 {
+    color: #333; /* Dark gray */
+  }
+  
+  /* Labels */
+  label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333; /* Dark gray */
+  }
+  
+  /* Input fields */
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc; /* Light gray border */
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+  
+  /* Button */
+  button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff; /* Dark blue */
+    color: #fff; /* White text */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #0056b3; /* Light blue on hover */
+  }
+  
+  /* Error message */
+  .error-message {
+    color: #dc3545; /* Red */
+    margin-top: 5px;
+  }
+  
+  /* Link */
+  a {
+    color: #007bff; /* Dark blue */
+    text-decoration: none;
+  }
+  
+  a:hover {
+    color: #0056b3; /* Light blue on hover */
+  }
+  
