@@ -8,7 +8,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-mongoose.connect('mongodb://127.0.0.1:27017/AcessMatch');
+mongoose.connect('mongodb+srv://sridevi:Srsv%400714@amcluster.f44qfxs.mongodb.net/AccessMatch');
 
 // Serve static files from the 'build' directory in the frontend
 app.use(express.static(path.join(__dirname, '../frontend/build')));
