@@ -24,5 +24,5 @@ const jobOpeningSchema = new mongoose.Schema({
 });
 const JobSeeker = mongoose.model("JobSeeker", jobSeekerSchema)
 const Recruiter = mongoose.model("Recruiter", recruiterSchema)
-const JobOpening = mongoose.model("JobOpening", jobOpeningSchema);
-module.exports = {JobSeeker, Recruiter, JobOpening};
+const JobOpenings = mongoose.model("JobOpenings", jobOpeningSchema);
+module.exports = {JobSeeker, Recruiter, JobOpenings};

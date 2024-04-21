@@ -6,6 +6,7 @@ import RecruiterLogin from './components/Login/RecruiterLogin';
 import JobFinder from './components/JobFinder/JobFinder';
 import ShortlistCandidate from './components/ShortlistCandidate/ShortlistCandidate';
 import PostJobByRecruiter from './components/PostJob/PostJobByRecruiter';
+import ApplyJobByJobSeeker from './components/ApplyJob/ApplyJobByJobSeeker';
 
 function App() {
   return (
@@ -14,9 +15,9 @@ function App() {
       <div>
         <h1>AccessMatch</h1>
         <ul>
-        <li><Link to="/register">Register</Link></li>
-        <li><Link to="/JobSeekerLogin">Job Seeker Login</Link></li>
-        <li><Link to="/RecruiterLogin">Recruiter Login</Link></li>
+          <li><Link to="/register">Register</Link></li>
+          <li><Link to="/JobSeekerLogin">Job Seeker Login</Link></li>
+          <li><Link to="/RecruiterLogin">Recruiter Login</Link></li>
         </ul>
         <Routes>
           <Route path="/register" element={<Register />} />
@@ -25,6 +26,7 @@ function App() {
           <Route path="/jobFinder" element={<JobFinder/>} /> {/* Define the /jobFinder route */}
           <Route path="/shortlistCandidate" element={<ShortlistCandidate/>} />
           <Route path="/postJobByRecruiter" element={<PostJobByRecruiter/>} />
+          <Route path="/applyToJob" element={<ApplyJobByJobSeeker/>} />
         </Routes>
       </div>
     </Router>

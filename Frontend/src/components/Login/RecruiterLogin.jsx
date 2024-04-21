@@ -41,7 +41,7 @@ function RecruiterLogin() {
     <>
     { !redirect && <div>
       <h1>Recruiter Login Page</h1>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="form-container">
         <div>
           <label>Email:</label>
           <input

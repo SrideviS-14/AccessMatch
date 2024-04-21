@@ -1,7 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
-const { JobSeeker, Recruiter, JobOpening } = require('./Models/models');
+const { JobSeeker, Recruiter, JobOpenings } = require('./Models/models');
 const path = require('path'); // Import path module for handling file paths
 
 const app = express();
@@ -93,7 +93,7 @@ app.post('/jobOpening/add', async (req, res) => {
         }
 
         // Create a new job opening
-        const jobOpening = new JobOpening({
+        const jobOpening = new JobOpenings({
             recruiterEmail: email,
             companyName,
             jobTitle,
@@ -110,6 +110,61 @@ app.post('/jobOpening/add', async (req, res) => {
     }
 });
 
+// New route to fetch all job openings or filter by job title
+app.get('/jobOpening/all', async (req, res) => {
+    try {
+        const { searchTerm } = req.query;
+        let jobs;
+
+        if (searchTerm && searchTerm.trim() !== '') {
+            // If searchTerm is provided, filter jobs by jobTitle containing the searchTerm
+            jobs = await JobOpenings.find({ jobTitle: { $regex: searchTerm, $options: 'i' } });
+        } else {
+            // If no searchTerm provided, fetch all jobs
+            jobs = await JobOpenings.find();
+        }
+
+        res.status(200).json(jobs);
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+});
+
+// New route to fetch all company names
+app.get('/jobOpening/allCompanies', async (req, res) => {
+    try {
+        const { searchTerm } = req.query;
+        let companies
+        if (searchTerm && searchTerm.trim() !== '') {
+            companies = await JobOpenings.find( { companyName: { $regex: searchTerm, $options: 'i'}});
+        }
+        else {
+            companies = await JobOpenings.distinct('companyName');  
+        }
+        res.status(200).json(companies);
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+});
+
+// New route to fetch job seeker details
+app.get('/jobSeeker/details', async (req, res) => {
+    try {
+        // Assuming you have some way to identify the current job seeker, like a session or token
+        const jobSeekerId = req.user.id; // Example: get job seeker ID from session or token
+        const jobSeeker = await JobSeeker.findById(jobSeekerId);
+        if (!jobSeeker) {
+            return res.status(404).json({ message: "Job seeker not found" });
+        }
+        res.status(200).json({
+            name: jobSeeker.Name,
+            email: jobSeeker.Email_id,
+            phoneNumber: jobSeeker.Phone_number
+        });
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+});
 
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {

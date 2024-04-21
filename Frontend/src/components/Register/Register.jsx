@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import {  Link } from 'react-router-dom';
 import 'C:\\Users\\91984\\Desktop\\AccessMatch\\Frontend\\src\\App.css'
 function Register() {
   const [formData, setFormData] = useState({
@@ -27,7 +28,7 @@ function Register() {
   return (
     <div>
       <h2>Register Page</h2>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="form-container">
         <div>
           <label>Username:</label>
           <input
@@ -64,7 +65,7 @@ function Register() {
             onChange={handleChange}
           />
         </div>
-        <div>
+        <div className="select-container">
           <label>User Type:</label>
           <select
             name="userType"

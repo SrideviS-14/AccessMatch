@@ -41,7 +41,7 @@ function JobSeekerLogin() {
     <>
     { !redirect && <div>
       <h1>Job Seeker Login Page</h1>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="form-container">
         <div>
           <label>Email:</label>
           <input
