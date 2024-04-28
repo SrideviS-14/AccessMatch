@@ -2,10 +2,14 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 
 function RecruiterHome() {
-
+  const handleLogout = () => {
+		localStorage.removeItem("token");
+		window.location.reload();
+	};
   return (
     <div>
       <h1>Recruiter Home Page</h1>
+      <button onClick={handleLogout}>Logout</button>
       <p>Welcome to the Recruiter Home Page!</p>
       <p>Post jobs:</p>
       <ul>

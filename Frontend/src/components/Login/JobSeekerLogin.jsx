@@ -39,6 +39,7 @@ function JobSeekerLogin() {
 
   return (
     <>
+
     { !redirect && <div>
       <h1>Job Seeker Login Page</h1>
       <form onSubmit={handleSubmit} className="form-container">
@@ -64,6 +65,7 @@ function JobSeekerLogin() {
         {error && <p>{error}</p>}
       </form>
       <p>Not registered? <Link to="/register">Register here</Link></p>
+      <p>Login as Recruiter <Link to="/RecruiterLogin">Login</Link></p>
       </div>}
       {/* Render Navigate component to redirect to JobSeekerHome upon loggedIn */}
       {redirect && <JobSeekerHome />}

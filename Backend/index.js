@@ -166,6 +166,24 @@ app.get('/jobSeeker/details', async (req, res) => {
     }
 });
 
+app.get('/recruiter/postedJobs', async (req, res) => {
+    try {
+        const { email } = req.query;
+        const jobs = await JobOpenings.find({ recruiterEmail: { $regex: email, $options: 'i'}});
+        if (!jobs || jobs.length === 0) {
+            return res.status(404).json({ message: "You haven't posted any jobs"});
+        }
+        const jobDetails = jobs.map(job => ({
+            companyName: job.companyName,
+            jobTitle: job.jobTitle,
+            jobDescription: job.jobDescription,
+            numberOfOpenings: job.numberOfOpenings
+        }));
+        res.status(200).json(jobDetails);
+    } catch(error) {
+        res.status(500).json({ message: error.message });
+    }
+});
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);

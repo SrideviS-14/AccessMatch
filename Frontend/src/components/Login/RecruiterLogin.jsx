@@ -64,6 +64,7 @@ function RecruiterLogin() {
         {error && <p>{error}</p>}
       </form>
       <p>Not registered? <Link to="/register">Register here</Link></p>
+      <p>Login as Job Seeker <Link to="/JobSeekerLogin">Login</Link></p>
       </div>}
       {/* Render Navigate component to redirect to RecruiterHome upon loggedIn */}
       {redirect && <RecruiterHome />}

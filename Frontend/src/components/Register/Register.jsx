@@ -78,6 +78,7 @@ function Register() {
           </select>
         </div>
         <button type="submit">Register</button>
+        Already registered? <Link to="/">Login</Link>
       </form>
     </div>
   );
