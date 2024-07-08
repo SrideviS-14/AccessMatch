@@ -1,0 +1,250 @@
+/*
+polynesian bue #054A91
+Steel Blue #3E7CB1
+Vista blue #81A4CD
+Aliceblue #DBE4EE
+Safety orage #F17300 */
+
+*{
+ margin: 0px;
+ padding: 0px;
+ box-sizing: border-box;
+}
+
+.image{
+top:0;
+left:2%;
+position:relative;
+width: 5%;
+height: 5%;
+border: 1px solid rgb(255, 255, 255);
+border-radius: 50%;
+border-top: 15px;
+border-bottom: 30px;
+box-shadow: 0 4px 8px rgba(108, 108, 108, 0.7); 
+background-color: rgb(255, 255, 255);
+}
+
+.container h1{
+font-family: sans-serif;
+font-size: 2.5rem;
+font-weight: bolder;
+color:#FFF;
+}
+
+.container{
+padding: 0.7%;
+background-color: #054A91;
+display: flex;
+flex-direction: row;
+align-items: center;
+gap:4%;
+}
+
+.logout-button{
+width: 7%;
+height: 5%;
+display: flex;
+justify-content: center;
+align-items: center;
+color: black;
+background-color: rgb(255, 255, 255);
+gap:10%;
+position: absolute;
+right: 10px;
+border-radius: 5px;
+flex-wrap: wrap;
+}
+
+.logout-image{
+width: 20%;
+height: 60%;
+flex-wrap: wrap;
+}
+
+.logout-button:hover , .logout-button:focus{
+    width: 7.5%;
+    height: 5.5%;    
+box-shadow:0 4px 8px rgba(0, 0, 0, 0.2) ;
+}
+
+.container h2{
+    text-align: center;
+    margin: 1.5rem;
+}
+
+ .job-container{
+    margin-top: 3rem;
+    margin-left: 10rem;
+    display:flex;
+    flex-flow: row;
+    flex-wrap: wrap;
+    gap: 110px;
+ }
+
+.job-card{
+ border: 2px solid rgb(146, 146, 146);
+ width: 500px;
+ justify-content: center;
+ display: flex;
+ flex-flow: column;
+ justify-content: center;
+ align-items: center;
+}
+
+.job-card h2{
+    font-size: 1.2rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    text-align: center; 
+    padding-top: 10px;
+}
+
+.job-card h3{
+    text-align: center;
+    padding-bottom: 10px;
+}
+.job-card p span{
+    font-weight: bold; 
+}
+
+.job-card p {
+    width: 50ch;
+    padding-bottom: 10px;   
+}
+
+.job-card img{
+    width: 50px; 
+    height: 50px; 
+    border: 1px solid black; 
+    padding: 1.7px;
+    border-radius: 50%; 
+    object-fit: cover;
+    justify-content: left;
+
+}
+.keyinfo{
+    margin-top: 20px;
+    margin-left: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.keyinfo p{
+    font-weight: 600;
+    font-size: 1rem;
+}
+.buttons button{
+    display: inline-block;
+    width:7rem; 
+    padding: 5px;
+    margin: 20px;
+}
+
+input[type="file"] {
+    display: none;
+
+  }
+
+.profile-image {
+    width: 150px; 
+    height: 150px; 
+    border: 2px solid black; 
+    padding: 5px;
+    border-radius: 50%; 
+    object-fit: cover;
+
+  }
+  .custom-file-upload {
+    display:block;
+    background-color: black;
+    border: none;
+    border-radius: 4px;
+    padding: 7px;
+    color:white;
+    margin: 15px;
+
+  }
+
+.prof{
+    width:20%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    border: 2px solid rgb(146, 146, 146);
+    height: 22.5rem;
+    padding: 30px;
+    margin-left: 10rem;
+}
+
+.info{
+    text-align: center;
+   line-height: 27px;
+}
+
+.info h4 , h2{
+ font-weight: lighter;
+}
+
+
+.header-section{
+    margin-top: 3rem;
+    display:flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap:3%
+}
+.box{
+    border: 2px solid rgb(146, 146, 146);
+    height: 22.5rem;
+    width:50%;
+
+    }
+
+
+.box h1{
+   padding-top: 2rem;
+   padding-left: 2rem;
+}
+ 
+.newjobcard{
+    width:20rem;
+    height: 13.5rem;
+    border: 2px solid rgb(146, 146, 146);
+    display: flex;
+    flex-flow: column;
+    gap: 10px;
+    margin: 2rem;
+    flex-wrap: wrap;
+    padding: 10px;
+    align-items: center;
+}
+.newjobcard h3{
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 500;
+    
+}
+.newjobcard p{
+    line-height: 1.3rem;
+    text-indent:1rem;
+
+}
+
+.newjobcard button{
+    width: 10rem;
+    height: 1.7rem;
+}
+.newjobcard button{
+    border-radius: 4px;
+}
+
+.feature{
+ display: flex;
+ justify-content: flex-start;
+ flex-direction: row;
+
+}

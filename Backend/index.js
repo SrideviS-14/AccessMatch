@@ -2,7 +2,11 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const { JobSeeker, Recruiter, JobOpenings } = require('./Models/models');
-const path = require('path'); // Import path module for handling file paths
+const multer = require('multer');
+const path = require('path');
+
+  // Set the destination for uploaded files
+
 
 const app = express();
 app.use(cors());
@@ -12,6 +16,22 @@ mongoose.connect('mongodb+srv://sridevi:Srsv%400714@amcluster.f44qfxs.mongodb.ne
 
 // Serve static files from the 'build' directory in the frontend
 app.use(express.static(path.join(__dirname, '../frontend/build')));
+
+
+
+const storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, 'uploads/');
+    },
+    filename: (req, file, cb) => {
+        cb(null, Date.now() + path.extname(file.originalname)); // Append the file extension
+    }
+});
+
+const upload = multer({ storage: storage });
+
+
+
 
 // Handle requests to the root URL and serve the 'index.html' file from the frontend 'build' directory
 app.get('/', (req, res) => {
@@ -38,6 +58,7 @@ app.post('/jobSeeker/login', async (req, res) => {
 });
 
 // Recruiter Login Route
+
 app.post('/recruiter/login', async (req, res) => {
     try {
         const { email, password } = req.body;
@@ -51,6 +72,23 @@ app.post('/recruiter/login', async (req, res) => {
         // such as generating a JWT token for authentication
 
         res.status(200).json({ message: "Login successful", user: recruiter });
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+});
+
+
+
+app.get('/recruiter/profilePhoto', async (req, res) => {
+    try {
+        const { email } = req.query;
+        const recruiter = await Recruiter.findOne({ Email_id: email });
+
+        if (!recruiter) {
+            return res.status(404).json({ message: "Recruiter not found" });
+        }
+
+        res.status(200).json({ photoURL: recruiter.profilePhotoURL });
     } catch (error) {
         res.status(500).json({ message: error.message });
     }
@@ -80,11 +118,9 @@ app.post('/register', async (req, res) => {
         res.status(500).json({ message: error.message });
     }
 });
-
-// Handle submission of job details form
 app.post('/jobOpening/add', async (req, res) => {
     try {
-        const { email, companyName, jobTitle, jobDescription, numberOfOpenings } = req.body;
+        const { email, companyName, jobTitle, jobDescription, numberOfOpenings, regDeadline } = req.body;
 
         // Check if the recruiter exists
         const recruiter = await Recruiter.findOne({ Email_id: email });
@@ -98,7 +134,8 @@ app.post('/jobOpening/add', async (req, res) => {
             companyName,
             jobTitle,
             jobDescription,
-            numberOfOpenings
+            numberOfOpenings,
+            regDeadline: new Date(regDeadline) // Convert to Date object
         });
 
         // Save the job opening to the database
@@ -110,7 +147,53 @@ app.post('/jobOpening/add', async (req, res) => {
     }
 });
 
-// New route to fetch all job openings or filter by job title
+// Endpoint to handle profile picture upload
+app.post('/recruiter/uploadProfilePhoto', upload.single('profilePhoto'), async (req, res) => {
+    try {
+        const { email } = req.body;
+        let filePath = req.file.filename; // Only save the filename
+        filePath = filePath.replace(/\\/g, "/"); // Replace backslashes with forward slashes
+
+        // Update recruiter profile with photo URL
+        const recruiter = await Recruiter.findOneAndUpdate(
+            { Email_id: email },
+            { profilePhotoURL: filePath },
+            { new: true }
+        );
+
+        if (!recruiter) {
+            return res.status(404).json({ message: "Recruiter not found" });
+        }
+
+        res.status(200).json({ message: "Profile photo uploaded successfully", profilePhotoURL: filePath });
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+});
+
+// Serve static files from the 'uploads' folder
+app.use('/uploads', express.static('uploads'));
+
+// Endpoint to fetch recruiter profile information
+app.get('/recruiter/profile', async (req, res) => {
+    try {
+        const { email } = req.query;
+        const recruiter = await Recruiter.findOne({ Email_id: email });
+
+        if (!recruiter) {
+            return res.status(404).json({ message: "Recruiter not found" });
+        }
+
+        res.status(200).json({
+            name: recruiter.Name,
+            email: recruiter.Email_id,
+            profilePhotoURL: recruiter.profilePhotoURL
+        });
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+});
+  
 app.get('/jobOpening/all', async (req, res) => {
     try {
         const { searchTerm } = req.query;
@@ -165,25 +248,28 @@ app.get('/jobSeeker/details', async (req, res) => {
         res.status(500).json({ message: error.message });
     }
 });
-
 app.get('/recruiter/postedJobs', async (req, res) => {
     try {
         const { email } = req.query;
         const jobs = await JobOpenings.find({ recruiterEmail: { $regex: email, $options: 'i'}});
         if (!jobs || jobs.length === 0) {
-            return res.status(404).json({ message: "You haven't posted any jobs"});
+            return res.status(404).json({ message: "You haven't posted any jobs" });
         }
         const jobDetails = jobs.map(job => ({
             companyName: job.companyName,
             jobTitle: job.jobTitle,
             jobDescription: job.jobDescription,
-            numberOfOpenings: job.numberOfOpenings
+            numberOfOpenings: job.numberOfOpenings,
+            regDeadline: job.regDeadline // Include regDeadline
         }));
         res.status(200).json(jobDetails);
     } catch(error) {
         res.status(500).json({ message: error.message });
     }
 });
+
+
+
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);

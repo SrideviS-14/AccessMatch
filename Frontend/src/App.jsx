@@ -17,7 +17,7 @@ function App() {
     <>
     <Router>
       <div>
-        <h1>AccessMatch</h1>
+        {/* <h1>AccessMatch</h1> */}
         <Routes>
           <Route path='/' element={<Main/>}/>
           {user && <Route path='/JobSeekerHome' exact element={<JobSeekerHome/>}/>}
@@ -39,3 +39,11 @@ function App() {
 }
 
 export default App;
+
+
+
+
+
+
+
+

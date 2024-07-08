@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+
 import axios from 'axios';
+import React, { useState, useEffect } from 'react';
 
 function PostJobByRecruiter() {
   const [formData, setFormData] = useState({
@@ -7,7 +8,8 @@ function PostJobByRecruiter() {
     companyName: '',
     jobTitle: '',
     jobDescription: '',
-    numberOfOpenings: 0
+    numberOfOpenings: 0,
+    regDeadline: ''
   });
 
   const handleChange = (e) => {
@@ -25,7 +27,15 @@ function PostJobByRecruiter() {
       // Handle error
     }
   };
+  const [email, setEmail] = useState('');
 
+  useEffect(() => {
+    // Fetch email from localStorage when component mounts
+    const userEmail = localStorage.getItem('userEmail');
+    if (userEmail) {
+      setEmail(userEmail);
+    }
+  }, []);
   return (
     <>
       <h1>Post Job By Recruiter Page</h1>
@@ -79,6 +89,16 @@ function PostJobByRecruiter() {
             required
           />
         </div>
+        <div>
+          <label>Registration Deadline(yyyy-mm-dd):</label>
+          <input
+            type="text"
+            name="regDeadline"
+            value={formData.regDeadline}
+            onChange={handleChange}
+            required
+          />
+        </div>
         <button type="submit">Submit</button>
       </form>
     </>
@@ -86,3 +106,8 @@ function PostJobByRecruiter() {
 }
 
 export default PostJobByRecruiter;
+
+
+
+
+

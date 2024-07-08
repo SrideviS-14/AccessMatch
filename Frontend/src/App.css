@@ -1,6 +1,6 @@
-body {
+/* body {
   font-family: Arial, sans-serif;
-  background-color: #e8f5e9; /* Sea foam background */
+  background-color: #e8f5e9;
   margin: 0;
   padding: 0;
 }
@@ -8,14 +8,14 @@ body {
 .container {
   width: 100%;
   max-width: 500px;
-  background-color: #fff; /* White container background */
+  background-color: #fff; 
   border-radius: 10px;
   padding: 40px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Shadow */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); 
 }
 
 h1, h2, h3 {
-  color: #00796b; /* Dark sea green headings */
+  color: #00796b;
   text-align: center;
 }
 
@@ -32,7 +32,7 @@ ul {
 
 a {
   text-decoration: none;
-  color: #00796b; /* Dark sea green links */
+  color: #00796b; 
   text-align: center;
 }
 
@@ -52,30 +52,30 @@ label {
 
 .job-search-form button,
 .job-search-form select {
-  background-color: #26a69a; /* Sea green buttons and select */
+  background-color: #26a69a;
   color: #fff;
   border: none;
   border-radius: 4px;
   padding: 10px 20px;
   cursor: pointer;
-  margin-right: 10px; /* Adjust the right margin for space between elements */
+  margin-right: 10px; 
 }
 
 .job-search-form .button-container {
-  display: flex; /* Use flexbox to display buttons inline */
-  margin-top: 10px; /* Add some top margin for spacing */
+  display: flex; 
+  margin-top: 10px; 
 }
 
 .job-search-form .button-container button,
 .job-search-form .button-container select {
-  margin-right: 10px; /* Add right margin between buttons */
+  margin-right: 10px; 
 }
 
 button {
-  display: block; /* Change the display property to block */
-  margin: 0 auto; /* Center-align the button horizontally */
-  width: 50%; /* Set width to 50% */
-  background-color: #26a69a; /* Sea green buttons */
+  display: block; 
+  margin: 0 auto; 
+  width: 50%; 
+  background-color: #26a69a; 
   color: #fff;
   border: none;
   border-radius: 4px;
@@ -85,13 +85,13 @@ button {
 }
 
 .form-container {
-  background-color: #fff; /* White background color */
-  padding: 20px; /* Add padding for spacing */
-  border-radius: 8px; /* Add border radius for rounded corners */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
-  width: 180%; /* Set the width to 180% of the parent container */
-  max-width: 1000px; /* Limit the maximum width */
-  margin: 0 auto; /* Center the container horizontally */
+  background-color: #fff; 
+  padding: 20px; 
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 180%; 
+  max-width: 1000px; 
+  margin: 0 auto; 
 }
 
 input[type="text"],
@@ -100,21 +100,21 @@ input[type="password"],
 textarea,
 input[type="number"],
 select {
-  width: 100%; /* Adjusted width to occupy the entire container */
+  width: 100%; 
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
   margin-bottom: 20px;
-  box-sizing: border-box; /* Include padding and border in the element's total width */
+  box-sizing: border-box; 
 }
 
 input[type="submit"]:hover,
 button:hover {
-  background-color: #00796b; /* Darker sea green on hover */
+  background-color: #00796b; 
 }
 
 .error-message {
-  color: #d32f2f; /* Red error message */
+  color: #d32f2f; 
   margin-top: 5px;
 }
 
@@ -138,11 +138,11 @@ button:hover {
 }
 
 .job-search-form button:hover {
-  background-color: #00796b; /* Darker sea green on hover */
+  background-color: #00796b;
 }
 
 .job h3 {
-  color: #00796b; /* Dark sea green for job titles */
+  color: #00796b;
 }
 
 .job p {
@@ -153,13 +153,13 @@ button:hover {
   margin-top: 20px;
   margin-bottom: 20px;
   border: 0;
-  border-top: 1px solid #26a69a; /* Sea green border */
+  border-top: 1px solid #26a69a; 
 }
 
 .job-card {
-  background-color: #f5f5f5; /* Light sea green for job cards */
+  background-color: #f5f5f5; 
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   margin-bottom: 20px;
-}
+} */
