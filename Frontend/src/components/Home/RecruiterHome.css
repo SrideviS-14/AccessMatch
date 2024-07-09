@@ -248,3 +248,9 @@ input[type="file"] {
  flex-direction: row;
 
 }
+
+.chat-image{
+    width:10px;
+    height:10px;
+
+}

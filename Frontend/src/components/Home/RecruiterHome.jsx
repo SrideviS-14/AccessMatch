@@ -105,8 +105,9 @@ import { Link } from 'react-router-dom';
 import './RecruiterHome.css';
 import logo from '../../Assets/logo.png';
 import logout from '../../Assets/logout.png';
-import placeholder from '../../Assets/placeholder.jpeg'
+import placeholder from '../../Assets/placeholder.jpeg';
 import axios from 'axios';
+import chat from '../../Assets/chat.png';
 
 function RecruiterHome({ email }) {
   const [jobs, setJobs] = useState([]);
@@ -184,7 +185,9 @@ function RecruiterHome({ email }) {
         </div>
         <div class = "box">
           <h1>WELCOME {profile.name}</h1>
-
+          <a href="https://accessmatch-chatspace.netlify.app/">
+          <img class="chat-image" src={chat} alt="chat" />
+          </a>
 <div className="feature">
 
 <div className="newjobcard">
@@ -245,7 +248,9 @@ function RecruiterHome({ email }) {
           ))
         )}
       </div>
+      
     </div>
+    
   );
 }
 
