@@ -185,9 +185,6 @@ function RecruiterHome({ email }) {
         </div>
         <div class = "box">
           <h1>WELCOME {profile.name}</h1>
-          <a href="https://accessmatch-chatspace.netlify.app/">
-          <img class="chat-image" src={chat} alt="chat" />
-          </a>
 <div className="feature">
 
 <div className="newjobcard">
@@ -247,6 +244,12 @@ function RecruiterHome({ email }) {
             </div>
           ))
         )}
+      </div>
+
+      <div>
+      <a href="https://accessmatch-chatspace.netlify.app/">
+          <img class="chat-image" src={chat} alt="chat" />
+          </a>
       </div>
       
     </div>

@@ -250,7 +250,10 @@ input[type="file"] {
 }
 
 .chat-image{
-    width:10px;
-    height:10px;
+    width:70px;
+    height:70px;
+    position: fixed;
+    bottom:10px;
+    right:10px;
 
 }
