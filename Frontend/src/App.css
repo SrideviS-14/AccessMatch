@@ -1,8 +1,9 @@
-/* body {
+  body {
   font-family: Arial, sans-serif;
-  background-color: #e8f5e9;
+  background-color: #E8EAF6;
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
 }
 
 .container {
@@ -15,7 +16,7 @@
 }
 
 h1, h2, h3 {
-  color: #00796b;
+  color: #2057aa;
   text-align: center;
 }
 
@@ -32,7 +33,7 @@ ul {
 
 a {
   text-decoration: none;
-  color: #00796b; 
+  color: #2057aa;
   text-align: center;
 }
 
@@ -52,7 +53,7 @@ label {
 
 .job-search-form button,
 .job-search-form select {
-  background-color: #26a69a;
+  background-color: #2057aa;
   color: #fff;
   border: none;
   border-radius: 4px;
@@ -72,26 +73,30 @@ label {
 }
 
 button {
-  display: block; 
-  margin: 0 auto; 
-  width: 50%; 
-  background-color: #26a69a; 
+  /* display: block;  */
+  /* margin: 0 auto;  */
+  width: 10%; 
+   background-color: #2057aa; 
+  background-color: #2969c9;
   color: #fff;
   border: none;
   border-radius: 4px;
   padding: 10px 20px;
   cursor: pointer;
-  width: 100%;
+  /* width: 100%; */
 }
 
-.form-container {
-  background-color: #fff; 
+.formContainer {
+  background-color: #ffffff; 
   padding: 20px; 
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   width: 180%; 
-  max-width: 1000px; 
+  max-width: 800px; 
   margin: 0 auto; 
+}
+.formContainer label{
+  font-weight: bold;
 }
 
 input[type="text"],
@@ -110,7 +115,8 @@ select {
 
 input[type="submit"]:hover,
 button:hover {
-  background-color: #00796b; 
+  /* background-color: #00796b;  */
+  background-color: #E8EAF6;
 }
 
 .error-message {
@@ -138,11 +144,11 @@ button:hover {
 }
 
 .job-search-form button:hover {
-  background-color: #00796b;
+  background-color: #2057aa
 }
 
 .job h3 {
-  color: #00796b;
+  color: #2057aa;
 }
 
 .job p {
@@ -153,13 +159,206 @@ button:hover {
   margin-top: 20px;
   margin-bottom: 20px;
   border: 0;
-  border-top: 1px solid #26a69a; 
+  border-top: 1px solid #2057aa;
 }
 
 .job-card {
-  background-color: #f5f5f5; 
+  background-color: #FFF;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   margin-bottom: 20px;
-} */
+} 
+ 
+.RecruiterHome .cont{
+padding: 0.7%;
+display: flex;
+flex-direction: row;
+align-items: center;
+gap:27%;
+width: 100%;
+}
+
+.RecruiterHome .cont img{
+top:0;
+left:2%;
+position:relative;
+width: 7%;
+height: 7%;
+border: 1px solid rgb(255, 255, 255);
+border-radius: 50%;
+border-top: 15px;
+border-bottom: 30px;
+box-shadow: 0 4px 8px rgba(108, 108, 108, 0.7); 
+background-color: rgb(255, 255, 255);
+}
+
+.RecruiterHome .cont h1{
+  font-family: sans-serif;
+font-size: 3rem;
+font-weight: bolder;
+letter-spacing: 2px;
+color:#2057aa;
+}
+.RecruiterHome .cont button{
+ background-color:#2057aa;
+ justify-content: flex-end;
+ }
+
+  .RecruiterHome .cont .logout-image{
+    width: 20%;
+    height: 60%;
+    flex-wrap: wrap;
+    }
+     
+ 
+   .RecruiterHome .headerSection {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      margin-left: 50px;
+      margin-right: 50px;
+      margin-top: 30px;
+      background-color: #fff;
+    }
+    
+    .RecruiterHome .headerSection .prof {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-right: 20px;
+      padding: 20px;
+      border-bottom: 4px;
+      background-color: white;
+    }
+    
+    .profileImage {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      margin-bottom: 10px;
+    }
+    
+    .customFileUpload {
+      display: inline-block;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    
+    .RecruiterHome .headerSection .customFileUpload input {
+      display: none;
+    }
+    
+    .RecruiterHome .headerSection .info {
+      text-align: center;
+    }
+    .RecruiterHome .headerSection .info span{
+      font-weight: lighter;
+    }
+    
+    .box {
+      flex-grow: 1;
+      padding: 20px;
+      background-color: #E8EAF6;
+    }
+    
+    .feature {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+    }
+    
+    .newJobCard {
+      background-color: white;
+      border: 1px solid #ccc;
+      padding: 20px;
+      margin: 10px;
+      border-radius: 8px;
+      width: 70%;
+      text-align: center;
+    }
+    
+    .jobContainer {
+      display: flex;
+      flex-direction: column;
+      padding: 20px;
+    }
+    
+    .jobCard {
+      background-color: white;
+      border: 1px solid #ccc;
+      padding: 20px;
+      margin: 10px;
+      border-radius: 8px;
+    }
+    
+    .keyInfo {
+      display: flex;
+      align-items: center;
+    }
+    
+    .jobCard .keyInfo img{
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+    }
+
+    .jobCard .keyInfo p{
+      text-align: left;
+      margin-left: 20px;
+      font-weight: 500;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap:5%;
+      margin-top: 10px;
+    }
+    
+    .chatImage {
+      position: fixed;
+      bottom: 13%;
+      right: 2%;
+      width: 60px;
+      height: 60px;
+      cursor: pointer;
+      border-radius: 50%;
+      box-shadow: 0 4px 8px rgba(108, 108, 108, 0.7);
+
+    }
+    
+    .listeningImage{
+      width: 70%;
+      height:70%;
+      margin: 20px;
+    }
+
+    .listeningButton {
+      background-color: white;
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      margin: 10px; 
+      border: none;
+      border-radius: 50%; 
+      width: 50px; 
+      height: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+      cursor: pointer; 
+    }
+    
+.seeker .btn-cls{
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: Add some shadow for better visibility */
+  cursor: pointer; /* Add a cursor pointer */
+}

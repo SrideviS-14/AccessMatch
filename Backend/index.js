@@ -118,9 +118,10 @@ app.post('/register', async (req, res) => {
         res.status(500).json({ message: error.message });
     }
 });
+
 app.post('/jobOpening/add', async (req, res) => {
     try {
-        const { email, companyName, jobTitle, jobDescription, numberOfOpenings, regDeadline } = req.body;
+        const { email, companyName, jobTitle, jobDescription, numberOfOpenings, regDeadline, disabilityType, acceptedLevelOfDisability } = req.body;
 
         // Check if the recruiter exists
         const recruiter = await Recruiter.findOne({ Email_id: email });
@@ -135,7 +136,9 @@ app.post('/jobOpening/add', async (req, res) => {
             jobTitle,
             jobDescription,
             numberOfOpenings,
-            regDeadline: new Date(regDeadline) // Convert to Date object
+            regDeadline: new Date(regDeadline), // Convert to Date object
+            disabilityType,
+            acceptedLevelOfDisability
         });
 
         // Save the job opening to the database
@@ -147,7 +150,7 @@ app.post('/jobOpening/add', async (req, res) => {
     }
 });
 
-// Endpoint to handle profile picture upload
+
 app.post('/recruiter/uploadProfilePhoto', upload.single('profilePhoto'), async (req, res) => {
     try {
         const { email } = req.body;
@@ -267,6 +270,10 @@ app.get('/recruiter/postedJobs', async (req, res) => {
         res.status(500).json({ message: error.message });
     }
 });
+
+
+
+
 
 
 

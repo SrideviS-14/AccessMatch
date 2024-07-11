@@ -2,6 +2,8 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import JobSeekerHome from '../Home/JobSeekerHome';
+import startListeningImg from '../../Assets/StartListening.png';
+import stopListeningImg from '../../Assets/StopListening.png';
 
 function JobSeekerLogin() {
   const [formData, setFormData] = useState({
@@ -136,10 +138,11 @@ function JobSeekerLogin() {
     <>
       <div>
         <h1>Job Seeker Login Page</h1>
-        <button onClick={toggleListening}>
+        {/* <button onClick={toggleListening}>
           {isListening ? 'Stop Listening' : 'Start Listening'}
-        </button>
-        <form onSubmit={handleSubmit} className="form-container" ref={formRef}>
+        </button> */}
+
+        <form onSubmit={handleSubmit} className="formContainer" ref={formRef}>
           <div>
             <label>Email:</label>
             <input
@@ -165,6 +168,17 @@ function JobSeekerLogin() {
         </form>
         <p>Not registered? <Link to="/register">Register here</Link></p>
         <p>Login as Recruiter <Link to="/RecruiterLogin">Login</Link></p>
+        <button
+      onClick={toggleListening}
+      className="listeningButton"
+      style={{ backgroundColor: 'white', padding: '0px' }} 
+    >
+      <img
+        src={isListening ? stopListeningImg : startListeningImg}
+        alt={isListening ? 'Stop Listening' : 'Start Listening'}
+        className="listeningImage"
+      />
+    </button>
       </div>
     </>
   );

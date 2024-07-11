@@ -1,7 +1,14 @@
+
+
+
+
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import RecruiterHome from '../Home/RecruiterHome';
+import styles from './Login.module.css'; 
+import startListeningImg from '../../Assets/StartListening.png';
+import stopListeningImg from '../../Assets/StopListening.png';
 
 function RecruiterLogin() {
   const [formData, setFormData] = useState({ email: '', password: '' });
@@ -28,7 +35,7 @@ function RecruiterLogin() {
 
       recognitionInstance.onend = () => {
         if (isListening) {
-          recognitionInstance.start(); // Restart recognition if still listening
+          recognitionInstance.start(); 
         }
       };
 
@@ -110,14 +117,13 @@ function RecruiterLogin() {
   };
 
   return (
-    <>
+    <div className={styles.Login}>
+      
+
       {!loggedIn ? (
         <div>
           <h1>Recruiter Login Page</h1>
-          <button onClick={toggleListening}>
-            {isListening ? 'Stop Listening' : 'Start Listening'}
-          </button>
-          <form onSubmit={handleSubmit} className="form-container">
+          <form onSubmit={handleSubmit} className="formContainer">
             <div>
               <label>Email:</label>
               <input
@@ -138,17 +144,40 @@ function RecruiterLogin() {
                 ref={(el) => inputRefs.current[1] = el}
               />
             </div>
-            <button type="submit">Login</button>
+            <button type="submit">Login</button><br></br>
             {error && <p>{error}</p>}
+
+
           </form>
           <p>Not registered? <Link to="/register">Register here</Link></p>
           <p>Login as Job Seeker <Link to="/JobSeekerLogin">Login</Link></p>
+          <button
+      onClick={toggleListening}
+      className="listeningButton"
+      style={{ backgroundColor: 'white', padding: '0px' }} 
+    >
+      <img
+        src={isListening ? stopListeningImg : startListeningImg}
+        alt={isListening ? 'Stop Listening' : 'Start Listening'}
+        className="listeningImage"
+      />
+    </button>
         </div>
       ) : (
         <RecruiterHome email={recruiterEmail} />
       )}
-    </>
+
+
+
+        
+    </div>
   );
 }
 
 export default RecruiterLogin;
+
+
+
+
+
+

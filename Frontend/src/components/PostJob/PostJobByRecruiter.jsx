@@ -1,4 +1,5 @@
 
+
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 
@@ -9,7 +10,9 @@ function PostJobByRecruiter() {
     jobTitle: '',
     jobDescription: '',
     numberOfOpenings: 0,
-    regDeadline: ''
+    regDeadline: '',
+    disabilityType: '',
+    acceptedLevelOfDisability: ''
   });
 
   const handleChange = (e) => {
@@ -27,6 +30,7 @@ function PostJobByRecruiter() {
       // Handle error
     }
   };
+
   const [email, setEmail] = useState('');
 
   useEffect(() => {
@@ -36,10 +40,11 @@ function PostJobByRecruiter() {
       setEmail(userEmail);
     }
   }, []);
+
   return (
     <>
       <h1>Post Job By Recruiter Page</h1>
-      <form onSubmit={handleSubmit} className='form-container'>
+      <form onSubmit={handleSubmit} className='formContainer'>
         <div>
           <label>Email:</label>
           <input
@@ -90,11 +95,31 @@ function PostJobByRecruiter() {
           />
         </div>
         <div>
-          <label>Registration Deadline(yyyy-mm-dd):</label>
+          <label>Registration Deadline (yyyy-mm-dd):</label>
           <input
             type="text"
             name="regDeadline"
             value={formData.regDeadline}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <div>
+          <label>Disability Type:</label>
+          <input
+            type="text"
+            name="disabilityType"
+            value={formData.disabilityType}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <div>
+          <label>Accepted Level of Disability:</label>
+          <input
+            type="text"
+            name="acceptedLevelOfDisability"
+            value={formData.acceptedLevelOfDisability}
             onChange={handleChange}
             required
           />
@@ -106,8 +131,4 @@ function PostJobByRecruiter() {
 }
 
 export default PostJobByRecruiter;
-
-
-
-
 

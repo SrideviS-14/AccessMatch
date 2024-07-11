@@ -2,7 +2,9 @@ import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import '../../App.css';
-
+import startListeningImg from '../../Assets/StartListening.png';
+import stopListeningImg from '../../Assets/StopListening.png';
+import styles from '../Login/Login.module.css';
 function Register() {
   const [formData, setFormData] = useState({
     username: '',
@@ -164,10 +166,7 @@ function Register() {
   return (
     <div>
       <h2>Register Page</h2>
-      <button onClick={toggleListening}>
-        {isListening ? 'Stop Listening' : 'Start Listening'}
-      </button>
-      <form onSubmit={handleSubmit} className="form-container">
+      <form onSubmit={handleSubmit} className="formContainer">
         <div>
           <label>Username:</label>
           <input
@@ -220,9 +219,20 @@ function Register() {
             <option value="recruiter">Recruiter</option>
           </select>
         </div>
-        <button type="submit" ref={(el) => inputRefs.current[5] = el}>Register</button>
+        <button type="submit" ref={(el) => inputRefs.current[5] = el}>Register</button><br></br><br></br>
         Already registered? <Link to="/">Login</Link>
       </form>
+      <button
+      onClick={toggleListening}
+      className="listeningButton"
+      style={{ backgroundColor: 'white', padding: '0px' }} 
+    >
+      <img
+        src={isListening ? stopListeningImg : startListeningImg}
+        alt={isListening ? 'Stop Listening' : 'Start Listening'}
+        className="listeningImage"
+      />
+    </button>
     </div>
   );
 }

@@ -1,6 +1,6 @@
 .fp-container {
     display: flex;
-    width: 100vw;
+    width: 100vw ;
     height: 100vh;
     gap: 3%;
   }
@@ -50,8 +50,6 @@
     height: 25%;
     border: none;
     border-radius: 50%;
-    margin: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7) ;
   }
 
   .left p{
@@ -84,7 +82,34 @@
     width:100%;
     align-items: center;
   }
+  .listening-container {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  
+  .listening-button {
+    width: 80px; /* Increase size for your circle */
+    height: 80px; /* Increase size for your circle */
+    border-radius: 50%; /* Make it a circle */
+    border: none;
+    background-color: white; /* Transparent background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    
+  }
+   
 
+  
+
+  
+    
+  
 
 
 

@@ -10,6 +10,7 @@ import ApplyJobByJobSeeker from './components/ApplyJob/ApplyJobByJobSeeker';
 import JobSeekerHome from './components/Home/JobSeekerHome';
 import Main from './components/Main';
 import RecruiterHome from './components/Home/RecruiterHome';
+import logo from '../../Frontend/src/Assets/logo.png';
 
 function App() {
   const user = localStorage.getItem("token");
