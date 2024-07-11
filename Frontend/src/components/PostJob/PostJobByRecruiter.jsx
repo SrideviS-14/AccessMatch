@@ -110,7 +110,7 @@ function PostJobByRecruiter() {
           />
         </div>
         <div>
-          <label>Disability Type:</label>
+          <label>Ability Category:</label>
           <input
             type="text"
             name="disabilityType"
@@ -120,7 +120,7 @@ function PostJobByRecruiter() {
           />
         </div>
         <div>
-          <label>Accepted Level of Disability:</label>
+          <label>Ability Level:</label>
           <input
             type="text"
             name="acceptedLevelOfDisability"

@@ -10,7 +10,8 @@ import ApplyJobByJobSeeker from './components/ApplyJob/ApplyJobByJobSeeker';
 import JobSeekerHome from './components/Home/JobSeekerHome';
 import Main from './components/Main';
 import RecruiterHome from './components/Home/RecruiterHome';
-import logo from '../../Frontend/src/Assets/logo.png';
+import Applicants from './components/Home/Applicants';
+
 
 function App() {
   const user = localStorage.getItem("token");
@@ -24,6 +25,7 @@ function App() {
           {user && <Route path='/RecruiterHome' exact element={<RecruiterHome/>}/>}
           <Route path="/JobSeekerHome" element={<Navigate replace to="/JobSeekerLogin" />} />
           <Route path="/RecruiterHome" element={<Navigate replace to="/RecruiterLogin" />} />
+          <Route path="/Applicants" element={<Applicants/>}/>
           <Route path="/register" exact element={<Register />} />
           <Route path="/JobSeekerLogin" element={<JobSeekerLogin/>} />
           <Route path="/RecruiterLogin" element={<RecruiterLogin/>} />

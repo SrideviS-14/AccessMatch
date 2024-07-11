@@ -143,7 +143,7 @@ function JobSeekerHome() {
   value={selectedDisability}
   onChange={(e) => setSelectedDisability(e.target.value)}
 >
-  <option value="">-- Select Disability --</option>
+  <option value="">-- Select Ability --</option>
   {allDisabilities.map((disability, index) => (
     <option key={index} value={disability}>{disability}</option>
   ))}
@@ -161,8 +161,8 @@ function JobSeekerHome() {
               <p>Company: {job.companyName}</p>
               <p>Description: {job.jobDescription}</p>
               <p>Openings: {job.numberOfOpenings}</p>
-              <p>Disability Type: {job.disabilityType}</p>
-              <p>Acceptance of Disability: {job.acceptedLevelOfDisability}</p>
+              <p>Ability Category: {job.disabilityType}</p>
+              <p>Ability Level: {job.acceptedLevelOfDisability}</p>
               <Link to='/applyToJob'>Link to apply job</Link>
               <hr />
             </div>

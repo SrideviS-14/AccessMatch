@@ -3,6 +3,7 @@ import axios from 'axios';
 import logo from '../../Assets/logo.png';
 
 
+
 function ApplyJobByJobSeeker() {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
@@ -64,13 +65,25 @@ function ApplyJobByJobSeeker() {
             <h1>Apply for a job</h1>
             <form onSubmit={handleSubmit} className="formContainer">
                 <div>
-                    <span>Name: {name}</span>
+                <label>Name:</label>
+            <input
+            type="text"
+            name="username"
+          />
+            </div>
+                <div>
+                <label>E-mail</label>
+          <input
+            type="text"
+            name="email"
+          />
                 </div>
                 <div>
-                    <span>Email: {email}</span>
-                </div>
-                <div>
-                    <span>Phone Number: {phoneNumber}</span>
+                <label>Phone Number:</label>
+          <input
+            type="text"
+            name="phnno"
+          />
                 </div>
                 <label>
                     Soft Skills:
@@ -90,7 +103,7 @@ function ApplyJobByJobSeeker() {
                         required
                     />
                 </label>
-                <button type="submit">Apply</button>
+                <button type="submit" >Apply</button>
             </form>
         </div>
     );

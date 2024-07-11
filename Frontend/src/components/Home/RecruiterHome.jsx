@@ -296,11 +296,21 @@ function RecruiterHome({ email }) {
               <h3>{job.companyName}</h3>
               <p>{job.jobDescription}</p>
               <p><span>Number Of Openings:</span> {job.numberOfOpenings}</p>
-              <p><span>Disability Type:</span> {job.disabilityType}</p>
-              <p><span>Acceptance of Disability:</span> {job.acceptedLevelOfDisability}</p>
+              <p><span>Ability Category:</span> {job.disabilityType}</p>
+              <p><span>Ability Level:</span> {job.acceptedLevelOfDisability}</p>
               <div className="buttons">
-                <button>Edit</button>
-                <button>View Applicants</button>
+                <button>
+                <Link to="/PostJobByRecruiter" style={{ textDecoration: 'none', color: 'inherit' }}>
+                  Edit
+                </Link>
+              </button>  
+
+                <button>
+                <Link to="/Applicants" style={{ textDecoration: 'none', color: 'inherit' }}>
+                  View Applications
+                </Link>
+              </button>
+
               </div>
             </div>
           ))
