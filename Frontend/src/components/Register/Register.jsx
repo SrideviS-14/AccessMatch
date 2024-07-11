@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import '../../App.css';
+import logo from '../../Assets/logo.png';
 import startListeningImg from '../../Assets/StartListening.png';
 import stopListeningImg from '../../Assets/StopListening.png';
 import styles from '../Login/Login.module.css';
@@ -164,7 +165,11 @@ function Register() {
   };
 
   return (
-    <div>
+    <div class ="Registerpage">
+         <div className="cont">
+        <img className="image" src={logo} alt="Logo" />
+        <h1>ACCESS MATCH</h1>
+      </div>
       <h2>Register Page</h2>
       <form onSubmit={handleSubmit} className="formContainer">
         <div>

@@ -9,6 +9,7 @@ import RecruiterHome from '../Home/RecruiterHome';
 import styles from './Login.module.css'; 
 import startListeningImg from '../../Assets/StartListening.png';
 import stopListeningImg from '../../Assets/StopListening.png';
+import logo from '../../Assets/logo.png';
 
 function RecruiterLogin() {
   const [formData, setFormData] = useState({ email: '', password: '' });
@@ -121,7 +122,12 @@ function RecruiterLogin() {
       
 
       {!loggedIn ? (
-        <div>
+        <div class="RecruiterLogin">
+          <div className="cont">
+        <img className="image" src={logo} alt="Logo" />
+        <h1>ACCESS MATCH</h1>
+        </div>
+
           <h1>Recruiter Login Page</h1>
           <form onSubmit={handleSubmit} className="formContainer">
             <div>

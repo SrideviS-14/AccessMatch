@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import logo from '../../Assets/logo.png';
 
 
 function ApplyJobByJobSeeker() {
@@ -55,9 +56,13 @@ function ApplyJobByJobSeeker() {
     }
 
     return(
-        <>
+        <div className ="applyjobspage">
+         <div className="cont">
+        <img className="image" src={logo} alt="Logo" />
+        <h1>ACCESS MATCH</h1>
+        </div>
             <h1>Apply for a job</h1>
-            <form onSubmit={handleSubmit} className="form-container">
+            <form onSubmit={handleSubmit} className="formContainer">
                 <div>
                     <span>Name: {name}</span>
                 </div>
@@ -87,7 +92,7 @@ function ApplyJobByJobSeeker() {
                 </label>
                 <button type="submit">Apply</button>
             </form>
-        </>
+        </div>
     );
 }
 

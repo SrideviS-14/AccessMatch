@@ -4,6 +4,7 @@ import axios from 'axios';
 import JobSeekerHome from '../Home/JobSeekerHome';
 import startListeningImg from '../../Assets/StartListening.png';
 import stopListeningImg from '../../Assets/StopListening.png';
+import logo from '../../Assets/logo.png';
 
 function JobSeekerLogin() {
   const [formData, setFormData] = useState({
@@ -136,12 +137,12 @@ function JobSeekerLogin() {
 
   return (
     <>
-      <div>
+      <div className = "JobSeekerLogin">
+      <div className="cont">
+        <img className="image" src={logo} alt="Logo" />
+        <h1>ACCESS MATCH</h1>
+      </div>
         <h1>Job Seeker Login Page</h1>
-        {/* <button onClick={toggleListening}>
-          {isListening ? 'Stop Listening' : 'Start Listening'}
-        </button> */}
-
         <form onSubmit={handleSubmit} className="formContainer" ref={formRef}>
           <div>
             <label>Email:</label>

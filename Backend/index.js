@@ -196,27 +196,42 @@ app.get('/recruiter/profile', async (req, res) => {
         res.status(500).json({ message: error.message });
     }
 });
-  
+
+
 app.get('/jobOpening/all', async (req, res) => {
     try {
-        const { searchTerm } = req.query;
-        let jobs;
+        const { searchTerm, companyName, disabilityType } = req.query;
+        let query = {};
 
-        if (searchTerm && searchTerm.trim() !== '') {
-            // If searchTerm is provided, filter jobs by jobTitle containing the searchTerm
-            jobs = await JobOpenings.find({ jobTitle: { $regex: searchTerm, $options: 'i' } });
-        } else {
-            // If no searchTerm provided, fetch all jobs
-            jobs = await JobOpenings.find();
+        if (searchTerm) {
+            query.jobTitle = { $regex: searchTerm, $options: 'i' };
+        }
+        if (companyName) {
+            query.companyName = { $regex: companyName, $options: 'i' };
+        }
+        if (disabilityType) {
+            query.disabilityType = { $regex: disabilityType, $options: 'i' };
         }
 
+        const jobs = await JobOpenings.find(query);
         res.status(200).json(jobs);
     } catch (error) {
         res.status(500).json({ message: error.message });
     }
 });
 
-// New route to fetch all company names
+
+app.get('/disabilities', async (req, res) => {
+    try {
+      const disabilities = await JobOpenings.distinct('disabilityType');
+      res.status(200).json(disabilities);
+    } catch (error) {
+      console.error('Error fetching disabilities:', error);
+      res.status(500).json({ message: 'Internal Server Error' });
+    }
+  });
+  
+  
 app.get('/jobOpening/allCompanies', async (req, res) => {
     try {
         const { searchTerm } = req.query;
@@ -251,6 +266,7 @@ app.get('/jobSeeker/details', async (req, res) => {
         res.status(500).json({ message: error.message });
     }
 });
+
 app.get('/recruiter/postedJobs', async (req, res) => {
     try {
         const { email } = req.query;
@@ -263,7 +279,9 @@ app.get('/recruiter/postedJobs', async (req, res) => {
             jobTitle: job.jobTitle,
             jobDescription: job.jobDescription,
             numberOfOpenings: job.numberOfOpenings,
-            regDeadline: job.regDeadline // Include regDeadline
+            regDeadline: job.regDeadline, // Include regDeadline
+            disabilityType: job.disabilityType, // Include disabilityType
+            acceptedLevelOfDisability: job.acceptedLevelOfDisability // Include acceptedLevelOfDisability
         }));
         res.status(200).json(jobDetails);
     } catch(error) {
@@ -277,7 +295,10 @@ app.get('/recruiter/postedJobs', async (req, res) => {
 
 
 
+
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
+
+

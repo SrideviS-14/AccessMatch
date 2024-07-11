@@ -2,6 +2,7 @@
 
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
+import logo from '../../Assets/logo.png';
 
 function PostJobByRecruiter() {
   const [formData, setFormData] = useState({
@@ -42,7 +43,11 @@ function PostJobByRecruiter() {
   }, []);
 
   return (
-    <>
+    <div className = "PostJobs">
+       <div className="cont">
+        <img className="image" src={logo} alt="Logo" />
+        <h1>ACCESS MATCH</h1>
+      </div>
       <h1>Post Job By Recruiter Page</h1>
       <form onSubmit={handleSubmit} className='formContainer'>
         <div>
@@ -126,7 +131,7 @@ function PostJobByRecruiter() {
         </div>
         <button type="submit">Submit</button>
       </form>
-    </>
+    </div>
   );
 }
 
